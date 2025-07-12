@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #Meus Apps Django
     'books',
+    'django_filters',
 
 
     # Django REST Framework
@@ -59,6 +60,11 @@ REST_FRAMEWORK = {
                                                                                                           
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema', 
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter', # Para a busca de texto
+        'rest_framework.filters.OrderingFilter', # Para ordenação
+    ]
 }
 
 MIDDLEWARE = [
